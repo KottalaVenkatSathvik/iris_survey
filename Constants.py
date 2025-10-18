@@ -26,17 +26,22 @@ OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months
 
 Q_PATIENT_NAME = "Patient Name"
 Q_AGE = "Age"
+Q_LOCATION ="Location"
 Q_OCCUPATION ="Occupation"
 Q_EDUCATION ="Education"
 
 PAST_MEDICAL_HISTORY_SUB_HEADER = "Past Medical History"
 Q_ALLERGIES = "Allergies/Medications/Food/Environment/Others"
+Q_ALLERGIES_DETAILS ="If Yes, Give the details"
 Q_SURGICAL_HIST = "Surgical Procedures/Injuries"
 Q_HIN_DMBA = "HTN/DMBA/THD/COPD/PUD/Others"
 
 SOCIAL_HISTORY_SUB_HEADER = "Social History"
+Q_SUBSTANCES_USE = "Substance Use"
+Q_IS_SUBSTANCES_USED_YES = "Substance Details"
 Q_SMOKING ="Smoking"
 Q_ALCOHOL ="Alcohol"
+Q_ALCOHOL_DETAILS ="Alcohol Details"
 Q_OTHER_SOCIAL_HISTORY = "Other Social History (if any)"
 Q_DIET = "Diet"
 Q_PHYSICAL_ACTIVITY = "Physical Activity"

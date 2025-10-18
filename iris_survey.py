@@ -23,6 +23,7 @@ st.markdown(f"<h1 style='text-align: center;color: #096f7a'>{Constants.APP_TITTL
 st.header(Constants.DEMOGRAPHIC_DETAILS_SUBHEADER)
 name = st.text_input(Constants.Q_PATIENT_NAME)
 age = st.number_input(Constants.Q_AGE, min_value=0, max_value=150)
+location = st.text_input(Constants.Q_LOCATION)
 occupation = st.text_input(Constants.Q_OCCUPATION)
 education = st.text_input(Constants.Q_EDUCATION)
 
@@ -32,7 +33,10 @@ survey_data[Constants.Q_OCCUPATION] = occupation
 survey_data[Constants.Q_EDUCATION] = education
 
 st.subheader(Constants.PAST_MEDICAL_HISTORY_SUB_HEADER)
-allergies = st.text_input(Constants.Q_ALLERGIES)
+allergies = st.radio(Constants.Q_ALLERGIES,Constants.YES_OR_NO_OPTIONS)
+if allergies == Constants.YES:
+    allergies_details= st.text_input(Constants.Q_ALLERGIES_DETAILS)
+    survey_data[Constants.Q_ALLERGIES_DETAILS] = allergies_details
 surgical_procedures = st.text_input(Constants.Q_SURGICAL_HIST)
 HIN_DMBA = st.text_input(Constants.Q_HIN_DMBA)
 
@@ -41,15 +45,23 @@ survey_data[Constants.Q_SURGICAL_HIST] = surgical_procedures
 survey_data[Constants.Q_HIN_DMBA] = HIN_DMBA
 
 st.subheader(Constants.SOCIAL_HISTORY_SUB_HEADER)
+substance_used = st.radio(Constants.Q_SUBSTANCES_USE,Constants.YES_OR_NO_OPTIONS)
+if substance_used == Constants.YES:
+    substances_details = st.text_input(Constants.Q_IS_SUBSTANCES_USED_YES)
+    survey_data[Constants.Q_IS_SUBSTANCES_USED_YES] = substances_details
 smoking = st.radio(Constants.Q_SMOKING, Constants.YES_OR_NO_OPTIONS)
 alcohol = st.radio(Constants.Q_ALCOHOL, Constants.YES_OR_NO_OPTIONS)
-other_social_history = st.text_input(Constants.Q_OTHER_SOCIAL_HISTORY)
+if alcohol == Constants.YES:
+    alcohol_details = st.text_input(Constants.Q_ALCOHOL_DETAILS)
+    survey_data[Constants.Q_ALCOHOL_DETAILS] = alcohol_details
+# other_social_history = st.text_input(Constants.Q_OTHER_SOCIAL_HISTORY)
 diet = st.radio(Constants.Q_DIET, Constants.DIET_OPTIONS)
 physical_activity = st.radio(Constants.Q_PHYSICAL_ACTIVITY, Constants.YES_OR_NO_OPTIONS)
 
+survey_data[Constants.Q_SUBSTANCES_USE]=substance_used
 survey_data[Constants.Q_SMOKING]=smoking
 survey_data[Constants.Q_ALCOHOL]=alcohol
-survey_data[Constants.Q_OTHER_SOCIAL_HISTORY]=other_social_history
+# survey_data[Constants.Q_OTHER_SOCIAL_HISTORY]=other_social_history
 survey_data[Constants.Q_DIET]=diet
 survey_data[Constants.Q_PHYSICAL_ACTIVITY]=physical_activity
 
@@ -60,17 +72,17 @@ if physical_activity==Constants.YES:
 
 marital_status = st.radio(Constants.Q_MARITAL_STS, Constants.MARITAL_STATUS_OPTIONS)
 num_of_children = st.number_input(Constants.Q_NUMBER_OF_CHILDREN,min_value=0)
-any_non_prescription_medications = st.radio(Constants.Q_ANY_NON_PRESCRIPTION_MEDICATIONS, Constants.YES_OR_NO_OPTIONS)
+# any_non_prescription_medications = st.radio(Constants.Q_ANY_NON_PRESCRIPTION_MEDICATIONS, Constants.YES_OR_NO_OPTIONS)
 
 survey_data[Constants.Q_MARITAL_STS]=marital_status
 survey_data[Constants.Q_NUMBER_OF_CHILDREN]=num_of_children
-survey_data[Constants.Q_ANY_NON_PRESCRIPTION_MEDICATIONS]=any_non_prescription_medications
+# survey_data[Constants.Q_ANY_NON_PRESCRIPTION_MEDICATIONS]=any_non_prescription_medications
 
-if any_non_prescription_medications== Constants.YES:
-    class_of_medications = st.text_input(Constants.Q_CLASS_OF_MEDICATIONS)
-    frequency = st.text_input(Constants.Q_FREQUENCY)
-    survey_data[Constants.Q_CLASS_OF_MEDICATIONS] = class_of_medications
-    survey_data[Constants.Q_FREQUENCY] = frequency
+# if any_non_prescription_medications== Constants.YES:
+#     class_of_medications = st.text_input(Constants.Q_CLASS_OF_MEDICATIONS)
+#     frequency = st.text_input(Constants.Q_FREQUENCY)
+#     survey_data[Constants.Q_CLASS_OF_MEDICATIONS] = class_of_medications
+#     survey_data[Constants.Q_FREQUENCY] = frequency
 
 st.subheader(Constants.Q_PAST_3_MONTHS_PREVALENCE)
 prescription_medications = st.text_input(Constants.Q_PRESCRIPTION_MEDI)
@@ -103,29 +115,29 @@ total_gad_score = a_gad_feeling_nerv[1] + a_gad_not_being_able[1] + a_gad_worryi
 survey_data['TOTAL_GAD_SCORE'] = total_gad_score
 
 ############################# Drug Abuse Screening Test (DAST-10) SECTION - START #####################################
-st.header(Constants.DAST_HEADER)
-a_dast_drugs_used_med_reasons = st.radio(Constants.Q_DAST_DRUGS_USED_MED_REASONS,Constants.YES_OR_NO_OPTIONS)
-a_dast_more_than_one_drug_at_a_time = st.radio(Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME,Constants.YES_OR_NO_OPTIONS)
-a_dast_unable_stop_abusing_drugs = st.radio(Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS,Constants.YES_OR_NO_OPTIONS)
-a_dast_have_ever_had_blackouts = st.radio(Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS,Constants.YES_OR_NO_OPTIONS)
-a_dast_feel_bad_guilty = st.radio(Constants.Q_DAST_FEEL_BAD_GUILTY,Constants.YES_OR_NO_OPTIONS)
-a_dast_deos_ur_spouse_ever_comp = st.radio(Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP,Constants.YES_OR_NO_OPTIONS)
-a_dast_you_neglected_ur_family = st.radio(Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY,Constants.YES_OR_NO_OPTIONS)
-a_dast_have_you_engaged_in_illegal = st.radio(Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL,Constants.YES_OR_NO_OPTIONS)
-a_dast_expr_withdrawal_symptoms = st.radio(Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS, Constants.YES_OR_NO_OPTIONS)
-a_dast_have_medical_problems = st.radio(Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS, Constants.YES_OR_NO_OPTIONS)
-
-#adding DAST RELATED ANSWERS TO 'survey_data'
-survey_data[Constants.Q_DAST_DRUGS_USED_MED_REASONS]=a_dast_drugs_used_med_reasons
-survey_data[Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME]=a_dast_more_than_one_drug_at_a_time
-survey_data[Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS]=a_dast_unable_stop_abusing_drugs
-survey_data[Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS]=a_dast_have_ever_had_blackouts
-survey_data[Constants.Q_DAST_FEEL_BAD_GUILTY]=a_dast_feel_bad_guilty
-survey_data[Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP]=a_dast_deos_ur_spouse_ever_comp
-survey_data[Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY]=a_dast_you_neglected_ur_family
-survey_data[Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL]=a_dast_have_you_engaged_in_illegal
-survey_data[Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS]=a_dast_expr_withdrawal_symptoms
-survey_data[Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS]=a_dast_have_medical_problems
+# st.header(Constants.DAST_HEADER)
+# a_dast_drugs_used_med_reasons = st.radio(Constants.Q_DAST_DRUGS_USED_MED_REASONS,Constants.YES_OR_NO_OPTIONS)
+# a_dast_more_than_one_drug_at_a_time = st.radio(Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME,Constants.YES_OR_NO_OPTIONS)
+# a_dast_unable_stop_abusing_drugs = st.radio(Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS,Constants.YES_OR_NO_OPTIONS)
+# a_dast_have_ever_had_blackouts = st.radio(Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS,Constants.YES_OR_NO_OPTIONS)
+# a_dast_feel_bad_guilty = st.radio(Constants.Q_DAST_FEEL_BAD_GUILTY,Constants.YES_OR_NO_OPTIONS)
+# a_dast_deos_ur_spouse_ever_comp = st.radio(Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP,Constants.YES_OR_NO_OPTIONS)
+# a_dast_you_neglected_ur_family = st.radio(Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY,Constants.YES_OR_NO_OPTIONS)
+# a_dast_have_you_engaged_in_illegal = st.radio(Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL,Constants.YES_OR_NO_OPTIONS)
+# a_dast_expr_withdrawal_symptoms = st.radio(Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS, Constants.YES_OR_NO_OPTIONS)
+# a_dast_have_medical_problems = st.radio(Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS, Constants.YES_OR_NO_OPTIONS)
+#
+# #adding DAST RELATED ANSWERS TO 'survey_data'
+# survey_data[Constants.Q_DAST_DRUGS_USED_MED_REASONS]=a_dast_drugs_used_med_reasons
+# survey_data[Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME]=a_dast_more_than_one_drug_at_a_time
+# survey_data[Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS]=a_dast_unable_stop_abusing_drugs
+# survey_data[Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS]=a_dast_have_ever_had_blackouts
+# survey_data[Constants.Q_DAST_FEEL_BAD_GUILTY]=a_dast_feel_bad_guilty
+# survey_data[Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP]=a_dast_deos_ur_spouse_ever_comp
+# survey_data[Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY]=a_dast_you_neglected_ur_family
+# survey_data[Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL]=a_dast_have_you_engaged_in_illegal
+# survey_data[Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS]=a_dast_expr_withdrawal_symptoms
+# survey_data[Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS]=a_dast_have_medical_problems
 
 ############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
 st.header(Constants.PHQ_HEADER)
@@ -154,32 +166,32 @@ survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
 
 
 ############################# Alcohol Use Disorders Identification Test Consumption (AUDIT C) Section - START #####################################
-st.header(Constants.AUDIT_C_HEADER)
-a_AUDIT_C_often_drinking = st.selectbox(Constants.Q_AUDIT_C_OFTEN_DRINKING, Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_many_units_of_alcohol = st.selectbox(Constants.Q_AUDIT_C_HOW_MANY_UNITS_OF_ALCOHOL, Constants.OPTIONS_UNITS,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_more_unit_f_m = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_MORE_UNIT_F_M,Constants.OPTIONS_LAST_YEAR,format_func= lambda x:x[0])
-
-#adding AUDIT_C RELATED ANSWERS TO 'survey_data'
-survey_data[Constants.Q_AUDIT_C_OFTEN_DRINKING]=a_AUDIT_C_often_drinking[1]
-survey_data[Constants.Q_AUDIT_C_HOW_MANY_UNITS_OF_ALCOHOL]=a_AUDIT_C_how_many_units_of_alcohol[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_MORE_UNIT_F_M]=a_AUDIT_C_how_often_more_unit_f_m[1]
-
-a_AUDIT_C_how_often_stop_drinking=st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_STOP_DRINKING,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_ly_you_failed= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FAILED,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_ly_you_needed_an= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_NEEDED_AN,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_ly_you_feeling_guilt= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FEELING_GUILT,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_unable_remember = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_injured_result_of_drinking = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING, Constants.OPTIONS_CUT_DOWN,format_func= lambda x:x[0])
-a_AUDIT_C_how_often_cut_down = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_CUT_DOWN, Constants.OPTIONS_CUT_DOWN,format_func= lambda x:x[0])
-
-#adding AUDIT_C RELATED ANSWERS TO 'survey_data'
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_STOP_DRINKING]=a_AUDIT_C_how_often_stop_drinking[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FAILED]=a_AUDIT_C_how_often_ly_you_failed[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_NEEDED_AN]=a_AUDIT_C_how_often_ly_you_needed_an[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FEELING_GUILT]=a_AUDIT_C_how_often_ly_you_feeling_guilt[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER]=a_AUDIT_C_how_often_unable_remember[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING]=a_AUDIT_C_how_often_injured_result_of_drinking[1]
-survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_CUT_DOWN]=a_AUDIT_C_how_often_cut_down[1]
+# st.header(Constants.AUDIT_C_HEADER)
+# a_AUDIT_C_often_drinking = st.selectbox(Constants.Q_AUDIT_C_OFTEN_DRINKING, Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_many_units_of_alcohol = st.selectbox(Constants.Q_AUDIT_C_HOW_MANY_UNITS_OF_ALCOHOL, Constants.OPTIONS_UNITS,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_more_unit_f_m = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_MORE_UNIT_F_M,Constants.OPTIONS_LAST_YEAR,format_func= lambda x:x[0])
+#
+# #adding AUDIT_C RELATED ANSWERS TO 'survey_data'
+# survey_data[Constants.Q_AUDIT_C_OFTEN_DRINKING]=a_AUDIT_C_often_drinking[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_MANY_UNITS_OF_ALCOHOL]=a_AUDIT_C_how_many_units_of_alcohol[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_MORE_UNIT_F_M]=a_AUDIT_C_how_often_more_unit_f_m[1]
+#
+# a_AUDIT_C_how_often_stop_drinking=st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_STOP_DRINKING,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_ly_you_failed= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FAILED,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_ly_you_needed_an= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_NEEDED_AN,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_ly_you_feeling_guilt= st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FEELING_GUILT,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_unable_remember = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER,Constants.OPTIONS_OFTEN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_injured_result_of_drinking = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING, Constants.OPTIONS_CUT_DOWN,format_func= lambda x:x[0])
+# a_AUDIT_C_how_often_cut_down = st.selectbox(Constants.Q_AUDIT_C_HOW_OFTEN_CUT_DOWN, Constants.OPTIONS_CUT_DOWN,format_func= lambda x:x[0])
+#
+# #adding AUDIT_C RELATED ANSWERS TO 'survey_data'
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_STOP_DRINKING]=a_AUDIT_C_how_often_stop_drinking[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FAILED]=a_AUDIT_C_how_often_ly_you_failed[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_NEEDED_AN]=a_AUDIT_C_how_often_ly_you_needed_an[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_LY_YOU_FEELING_GUILT]=a_AUDIT_C_how_often_ly_you_feeling_guilt[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER]=a_AUDIT_C_how_often_unable_remember[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING]=a_AUDIT_C_how_often_injured_result_of_drinking[1]
+# survey_data[Constants.Q_AUDIT_C_HOW_OFTEN_CUT_DOWN]=a_AUDIT_C_how_often_cut_down[1]
 
 ############################# ASSIST V3.1 - START #####################################
 st.header(Constants.ASSIST_V3_HEADER)
