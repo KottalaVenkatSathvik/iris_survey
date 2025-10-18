@@ -10,7 +10,6 @@ GAD_7_ANXIETY_OPTIONS = list({ "Not at all":0 , "Several Days" :1, "More than ha
 PHQ_OPTIONS= list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
 
 
-
 OPTIONS_OFTEN = list({"Never": 0, "Monthly or Less": 1, "2 to 4 times per month": 2, "2 to 3 times per week": 3,"4 or More times per week": 4}.items())
 OPTIONS_UNITS = list({"0 to 2": 0, "3 to 4": 1, "5 to 6": 2, "7 to 8": 3,"10 or more": 4}.items())
 OPTIONS_LAST_YEAR = list({"Never": 0, "Less than monthly": 1, "Monthly": 2, "Weekly": 3,"Daily or almost daily": 4}.items())
@@ -24,6 +23,8 @@ OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 mont
 
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
 
+OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Months":"Past 1 Months","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
+
 Q_PATIENT_NAME = "Patient Name"
 Q_AGE = "Age"
 Q_LOCATION ="Location"
@@ -32,29 +33,47 @@ Q_EDUCATION ="Education"
 
 PAST_MEDICAL_HISTORY_SUB_HEADER = "Past Medical History"
 Q_ALLERGIES = "Allergies/Medications/Food/Environment/Others"
-Q_ALLERGIES_DETAILS ="If Yes, Give the details"
+Q_ALLERGIES_DETAILS ="If Yes, What allergies you have ?"
 Q_SURGICAL_HIST = "Surgical Procedures/Injuries"
-Q_HIN_DMBA = "HTN/DMBA/THD/COPD/PUD/Others"
+Q_SURGICAL_PROCEDURE_DETAILS="If Yes, Please Give Surgical Procedure/Injuries Details"
+
+Q_HYPER_TENSION_BP="Hyper Tension/High BP"
+Q_DIABETES_MELLITUS="Diabetes Mellitus"
+Q_HYPER_THYROID="Hyper Thyroid"
+Q_HYPO_THYROID="Hypo Thyroid"
+Q_COPD="COPD"
+Q_PEPTIC_ULCER_DISEASE="Peptic Ulcer Disease"
+Q_OTHER_MEDICAL_HIST="Other,Past Medical History"
 
 SOCIAL_HISTORY_SUB_HEADER = "Social History"
-Q_SUBSTANCES_USE = "Substance Use"
-Q_IS_SUBSTANCES_USED_YES = "Substance Details"
+Q_SUBSTANCES_USE = "Any Substance Use ?"
+Q_IS_SUBSTANCES_USED_YES = "What/Which substance using at present ?"
 Q_SMOKING ="Smoking"
 Q_ALCOHOL ="Alcohol"
 Q_ALCOHOL_DETAILS ="Alcohol Details"
-Q_OTHER_SOCIAL_HISTORY = "Other Social History (if any)"
+# Q_OTHER_SOCIAL_HISTORY = "Other Social History (if any)"
 Q_DIET = "Diet"
 Q_PHYSICAL_ACTIVITY = "Physical Activity"
 Q_IS_PHYSICAL_ACTIVITY_YES ="If Yes , Give details"
 Q_NUMBER_OF_CHILDREN = "Number of Children"
 Q_MARITAL_STS = "Marital Status"
-Q_ANY_NON_PRESCRIPTION_MEDICATIONS ="Any Non-Prescription Medications ?"
-Q_CLASS_OF_MEDICATIONS = "if Yes ,What class of medications ?"
-Q_FREQUENCY= "Frequency"
+# Q_ANY_NON_PRESCRIPTION_MEDICATIONS ="Any Non-Prescription Medications ?"
+# Q_CLASS_OF_MEDICATIONS = "if Yes ,What class of medications ?"
+# Q_FREQUENCY= "Frequency"
 
 Q_PAST_3_MONTHS_PREVALENCE = "Past 3 months Prevalence"
-Q_PRESCRIPTION_MEDI="Prescription Medications"
-Q_NON_PRESCRIPTION_MEDI ="Non Prescription Medications"
+Q_PRESCRIPTION_MEDI="Any Physician Prescription Medications ?"
+Q_PRESCRIPTION_MEDI_DETAILS ="Physician Prescription Medications"
+Q_PRESCRIPTION_MEDI_DURATION ="Physician Prescription Medications Duration"
+
+Q_NON_PRESCRIPTION_MEDI ="Any Non Prescription Medications ?"
+Q_NON_PRESCRIPTION_MEDI_DETAILS = "Non Prescription Medications "
+Q_NON_PRESCRIPTION_MEDI_DURATION = "Non Prescription Medications Duration"
+
+Q_OTC_MEDI ="Any OTC Medications ?"
+Q_OTC_MEDI_DETAILS = "OTC Medications Medications"
+Q_OTC_MEDI_DURATION = "OTC Medications Medications Duration"
+
 
 GAD_7_ANXIETY_HEADER= "GAD-7 Anxiety"
 GAD_7_ANXIETY_OPTIONS_INFO ="0 → Not at all, \n 1 → Several Days, \n 2 → More than half the days, \n 3 → Nearly every day"
@@ -106,7 +125,7 @@ Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER = "How often during the last year have you b
 Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING = "Have you or somebody else been injured as a result of your drinking ?"
 Q_AUDIT_C_HOW_OFTEN_CUT_DOWN = "Have a relative or friend doctor or other health worker been concerned about your drinking or suggested that you cut down on it ?"
 
-ASSIST_V3_HEADER = "ASSIST V3.1"
+ASSIST_V3_HEADER = "WHO ASSIST V3.1"
 Q1_IN_LIFE_SUBSTANCES_USED_HEADER = "Q1.In your life, which of the following substances have you ever used? (NON-MEDICAL USE ONLY)"
 Q1A_TOBACCO_PRODUCTS = "Q1.a.Tobacco products (cigarettes, chewing tobacco, cigars, etc.)"
 Q1B_ALCOHOLIC_PRODUCTS = "Q1.b.Alcoholic beverages (beer, wine, spirits, etc.)"
