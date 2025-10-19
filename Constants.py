@@ -1,5 +1,7 @@
+#TITLE SECTION
 APP_TITTLE="Patient Survey - V1"
 
+#OPTIONS SECTION
 DEMOGRAPHIC_DETAILS_SUBHEADER ="Patient Demographic Details"
 YES ="Yes"
 NEVER="Never"
@@ -8,7 +10,6 @@ DIET_OPTIONS = ["Veg", "Non-Veg"]
 MARITAL_STATUS_OPTIONS = ["Married", "Unmarried"]
 GAD_7_ANXIETY_OPTIONS = list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
 PHQ_OPTIONS= list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
-
 
 OPTIONS_OFTEN = list({"Never": 0, "Monthly or Less": 1, "2 to 4 times per month": 2, "2 to 3 times per week": 3,"4 or More times per week": 4}.items())
 OPTIONS_UNITS = list({"0 to 2": 0, "3 to 4": 1, "5 to 6": 2, "7 to 8": 3,"10 or more": 4}.items())
@@ -22,8 +23,9 @@ OPTIONS_Q5_OFTEN_SUBSTANCES =  list({"Never": 0, "Once or Twice": 5, "Monthly": 
 OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 months": 6, "Yes, but not in the past 3 months": 3}.items())
 
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
+OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Month":"Past 1 Month","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
 
-OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Months":"Past 1 Months","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
+#DEMOGRAPHIC DETAILS SECTION
 
 Q_PATIENT_NAME = "Patient Name"
 Q_AGE = "Age"
@@ -45,22 +47,20 @@ Q_COPD="COPD"
 Q_PEPTIC_ULCER_DISEASE="Peptic Ulcer Disease"
 Q_OTHER_MEDICAL_HIST="Other,Past Medical History"
 
+#SOCIAL HISTORY SECTION
 SOCIAL_HISTORY_SUB_HEADER = "Social History"
 Q_SUBSTANCES_USE = "Any Substance Use ?"
 Q_IS_SUBSTANCES_USED_YES = "What/Which substance using at present ?"
 Q_SMOKING ="Smoking"
 Q_ALCOHOL ="Alcohol"
 Q_ALCOHOL_DETAILS ="Alcohol Details"
-# Q_OTHER_SOCIAL_HISTORY = "Other Social History (if any)"
 Q_DIET = "Diet"
 Q_PHYSICAL_ACTIVITY = "Physical Activity"
-Q_IS_PHYSICAL_ACTIVITY_YES ="If Yes , Give details"
+Q_IS_PHYSICAL_ACTIVITY_YES ="If Yes , Give Physical activity details"
 Q_NUMBER_OF_CHILDREN = "Number of Children"
 Q_MARITAL_STS = "Marital Status"
-# Q_ANY_NON_PRESCRIPTION_MEDICATIONS ="Any Non-Prescription Medications ?"
-# Q_CLASS_OF_MEDICATIONS = "if Yes ,What class of medications ?"
-# Q_FREQUENCY= "Frequency"
 
+# PAST 3 MONTHS PREVALENCE SECTION
 Q_PAST_3_MONTHS_PREVALENCE = "Past 3 months Prevalence"
 Q_PRESCRIPTION_MEDI="Any Physician Prescription Medications ?"
 Q_PRESCRIPTION_MEDI_DETAILS ="Physician Prescription Medications"
@@ -85,19 +85,8 @@ Q_GAD_BEING_SO_RESTLESS = "Being so restless that is it hard to sit still "
 Q_GAD_BECOMING_EASILY_ANNOYED = "Becoming easily annoyed or irritable"
 Q_GAD_FEELING_AFRAID = "Feeling afraid, as if something awful might happen"
 
-DAST_HEADER = "Drug Abuse Screening Test (DAST-10)"
-Q_DAST_DRUGS_USED_MED_REASONS = "Have you used drugs other than those required for medical reasons ?"
-Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME = "Do you abuse more than one drug at a time ?"
-Q_DAST_UNABLE_STOP_ABUSING_DRUGS = "Are you unable to stop abusing drugs when you want to ?"
-Q_DAST_HAVE_EVER_HAD_BLACKOUTS = "Have you ever had blackouts or flashbacks as result of drug user ?"
-Q_DAST_FEEL_BAD_GUILTY = "Do you feel bad or guilty about your drug use ?"
-Q_DAST_DEOS_UR_SPOUSE_EVER_COMP = "Does your spouse (or parents) ever complain about your involvement with drugs ?"
-Q_DAST_YOU_NEGLECTED_UR_FAMILY = "Have you neglected your family because of your use of drugs ?"
-Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL = "Have you engaged in illegal activities in order to obtain drugs ?"
-Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS = "Have your ever experienced withdrawal symptoms (felt sick) when you stopped taking drugs ?"
-Q_DAST_HAVE_MEDICAL_PROBLEMS = "Have you had medical problems as a result of your drug use (e.g memory loss , hepatitis,convulsions, bleeding) ?"
 
-
+# PATIENT HEALTH QUESTIONNAIRE -9 (PHQ-9) SECTION
 PHQ_HEADER = "Patient Health Questionnaire -9 (PHQ-9)"
 PHQ_OPTIONS_INFO = "0 → Not at all, \n 1 → Several Days, \n 2 → More than half the days, \n 3 → Nearly every day"
 Q_PHQ_LITTLE_INTEREST= "Little interest or pleasure in doing things"
@@ -110,20 +99,6 @@ Q_PHQ_TROUBLE_CONCENTRATION = "Trouble concentrating on things, such as reading 
 Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW = "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual "
 Q_PHQ_THOUGHTS_THAT="Thoughts that you would be better off dead, or of hurting yourself in some way"
 
-
-AUDIT_C_HEADER = "Alcohol Use Disorders Identification Test Consumption (AUDIT C)"
-
-
-Q_AUDIT_C_OFTEN_DRINKING = "How often do you have a drink containing alcohol ?"
-Q_AUDIT_C_HOW_MANY_UNITS_OF_ALCOHOL = "How many units of alcohol  do you drink on a typical day when you are drinking alcohol ?"
-Q_AUDIT_C_HOW_OFTEN_MORE_UNIT_F_M = "How often have you had 6 or more units if female , or 8 or more if male ,on single occasion in the last year ?"
-Q_AUDIT_C_HOW_OFTEN_STOP_DRINKING="How often during the last year have found that you were not able to stop drinking alcohol once you had started ?"
-Q_AUDIT_C_HOW_OFTEN_LY_YOU_FAILED= "How often during the last year have you failed to do what was normally expected from you because of your drinking ?"
-Q_AUDIT_C_HOW_OFTEN_LY_YOU_NEEDED_AN= "How often during the last year have you needed an alcoholic drink the morning to get yourself going after heavy drinking session ?"
-Q_AUDIT_C_HOW_OFTEN_LY_YOU_FEELING_GUILT= "How often during the last year have you had a feeling of guilt or remorse after drinking ?"
-Q_AUDIT_C_HOW_OFTEN_UNABLE_REMEMBER = "How often during the last year have you been unable to remember what happened the night before because you had been drinking ?"
-Q_AUDIT_C_HOW_OFTEN_INJURED_RESULT_OF_DRINKING = "Have you or somebody else been injured as a result of your drinking ?"
-Q_AUDIT_C_HOW_OFTEN_CUT_DOWN = "Have a relative or friend doctor or other health worker been concerned about your drinking or suggested that you cut down on it ?"
 
 ASSIST_V3_HEADER = "WHO ASSIST V3.1"
 Q1_IN_LIFE_SUBSTANCES_USED_HEADER = "Q1.In your life, which of the following substances have you ever used? (NON-MEDICAL USE ONLY)"
@@ -258,3 +233,6 @@ G_SEDATIVES_INTERVENTION_TYPE ="Sedatives " +INTERVENTION_TYPE
 H_HALLUCINOGENS_INTERVENTION_TYPE="Hallucinogens " +INTERVENTION_TYPE
 I_OPIOIDS_INTERVENTION_TYPE ="Opioids " +SUBSTANCE_SCORE
 J_OTHER_INTERVENTION_TYPE ="Other drugs " +INTERVENTION_TYPE
+
+SHEET_NAME ="Patient_Survey_V1_IRIS"
+scope =["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/spreadsheets"]

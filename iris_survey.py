@@ -1,15 +1,20 @@
+import gspread
 import streamlit as st
-import pandas as pd
-import os
+
+from google.oauth2.service_account import Credentials
 
 def find_intervention_type(value, low,mid,high):
     return Constants.NO_INTERVENTION if low <= value < mid else Constants.RECEIVE_BRIEF_INTERVENTION if mid <=value<high else Constants.MORE_INTENSIVE_TREATMENT
 
 import Constants
 from Constants import Q_GAD_BECOMING_EASILY_ANNOYED, Q_GAD_FEELING_AFRAID, TOTAL_E_AMPHETAMINES_SCORE, \
-    TOTAL_F_INHALANTS_SCORE, TOTAL_G_SEDATIVES_SCORE
+    TOTAL_F_INHALANTS_SCORE
 from survey_data_schema import survey_data
 
+
+creds= Credentials.from_service_account_file("survey-account.json",scopes=Constants.scope)
+client =gspread.authorize(creds)
+sheet = client.open(Constants.SHEET_NAME).sheet1
 
 ############################# APP TITLE #####################################
 st.markdown(f"<h1 style='text-align: center;color: #096f7a'>{Constants.APP_TITTLE}</h1>", unsafe_allow_html=True)
@@ -24,11 +29,12 @@ education = st.text_input(Constants.Q_EDUCATION)
 
 survey_data[Constants.Q_PATIENT_NAME] = name
 survey_data[Constants.Q_AGE] = age
+survey_data[Constants.Q_LOCATION] = location
 survey_data[Constants.Q_OCCUPATION] = occupation
 survey_data[Constants.Q_EDUCATION] = education
 
-st.subheader(Constants.PAST_MEDICAL_HISTORY_SUB_HEADER)
 
+st.subheader(Constants.PAST_MEDICAL_HISTORY_SUB_HEADER)
 allergies = st.radio(Constants.Q_ALLERGIES,Constants.YES_OR_NO_OPTIONS)
 survey_data[Constants.Q_ALLERGIES] = allergies
 
@@ -68,7 +74,6 @@ alcohol = st.radio(Constants.Q_ALCOHOL, Constants.YES_OR_NO_OPTIONS)
 if alcohol == Constants.YES:
     alcohol_details = st.text_input(Constants.Q_ALCOHOL_DETAILS)
     survey_data[Constants.Q_ALCOHOL_DETAILS] = alcohol_details
-# other_social_history = st.text_input(Constants.Q_OTHER_SOCIAL_HISTORY)
 diet = st.radio(Constants.Q_DIET, Constants.DIET_OPTIONS)
 physical_activity = st.radio(Constants.Q_PHYSICAL_ACTIVITY, Constants.YES_OR_NO_OPTIONS)
 
@@ -77,14 +82,11 @@ survey_data[Constants.Q_SMOKING]=smoking
 survey_data[Constants.Q_ALCOHOL]=alcohol
 survey_data[Constants.Q_DIET]=diet
 survey_data[Constants.Q_PHYSICAL_ACTIVITY]=physical_activity
-
 if physical_activity==Constants.YES:
     physical_activity_details = st.text_input(Constants.Q_IS_PHYSICAL_ACTIVITY_YES)
     survey_data[Constants.Q_IS_PHYSICAL_ACTIVITY_YES]=physical_activity_details
-
 marital_status = st.radio(Constants.Q_MARITAL_STS, Constants.MARITAL_STATUS_OPTIONS)
 num_of_children = st.number_input(Constants.Q_NUMBER_OF_CHILDREN,min_value=0)
-
 survey_data[Constants.Q_MARITAL_STS]=marital_status
 survey_data[Constants.Q_NUMBER_OF_CHILDREN]=num_of_children
 
@@ -94,21 +96,21 @@ if any_prescription_medications == Constants.YES:
     prescription_medications_details = st.text_input(Constants.Q_PRESCRIPTION_MEDI_DETAILS)
     prescription_medications_duration = st.selectbox(Constants.Q_PRESCRIPTION_MEDI_DURATION,Constants.OPTIONS_MEDICATIONS_DURATION,format_func=lambda x: x[0])
     survey_data[Constants.Q_PRESCRIPTION_MEDI_DETAILS] = prescription_medications_details
-    survey_data[Constants.Q_PRESCRIPTION_MEDI_DURATION] = prescription_medications_duration
+    survey_data[Constants.Q_PRESCRIPTION_MEDI_DURATION] = prescription_medications_duration[1]
 
 any_non_prescription_medications = st.radio(Constants.Q_NON_PRESCRIPTION_MEDI,Constants.YES_OR_NO_OPTIONS)
 if any_non_prescription_medications == Constants.YES:
     non_prescription_medications_details = st.text_input(Constants.Q_NON_PRESCRIPTION_MEDI_DETAILS)
     non_prescription_medications_duration = st.selectbox(Constants.Q_NON_PRESCRIPTION_MEDI_DURATION,Constants.OPTIONS_MEDICATIONS_DURATION,format_func=lambda x: x[0])
     survey_data[Constants.Q_NON_PRESCRIPTION_MEDI_DETAILS] = non_prescription_medications_details
-    survey_data[Constants.Q_OTC_MEDI_DURATION] = non_prescription_medications_duration
+    survey_data[Constants.Q_OTC_MEDI_DURATION] = non_prescription_medications_duration[1]
 
 any_otc_medications = st.radio(Constants.Q_OTC_MEDI,Constants.YES_OR_NO_OPTIONS)
 if any_otc_medications == Constants.YES:
     otc_medications_details = st.text_input(Constants.Q_OTC_MEDI_DETAILS)
     otc_medications_duration = st.selectbox(Constants.Q_OTC_MEDI_DURATION,Constants.OPTIONS_MEDICATIONS_DURATION,format_func=lambda x: x[0])
     survey_data[Constants.Q_OTC_MEDI_DETAILS] = otc_medications_details
-    survey_data[Constants.Q_OTC_MEDI_DURATION] = otc_medications_duration
+    survey_data[Constants.Q_OTC_MEDI_DURATION] = otc_medications_duration[1]
 
 survey_data[Constants.Q_PRESCRIPTION_MEDI]=any_prescription_medications
 survey_data[Constants.Q_NON_PRESCRIPTION_MEDI]=any_non_prescription_medications
@@ -226,7 +228,7 @@ if not IS_USER_SELECTED_YES_Q1_SECTION:
     IS_USER_SELECTED_YES_Q2_SECTION = all(a[0] == 0 for a in
                                           [Q2AA_TOBACCO_PRODUCTS, Q2BA_ALCOHOLIC_PRODUCTS, Q2CA_CANNABIS, Q2DA_COCAINE,
                                            Q2EA_AMPHETAMINE_TYPE_STIMULANTS, Q2FA_INHALANTS,
-                                           Q2GA_SEDATIVES_OR_SLEEPING_PILLS, Q2HA_HALLUCINOGEN, Q2JA_OTHER_SPECIFY])
+                                           Q2GA_SEDATIVES_OR_SLEEPING_PILLS, Q2HA_HALLUCINOGEN,Q2IA_OPIOIDS, Q2JA_OTHER_SPECIFY])
 
     if not IS_USER_SELECTED_YES_Q2_SECTION:
         st.subheader(Constants.Q3_PAST_THREE_MONTHS_HOW_OFTEN_STRONG_DESIRE_SUBHEADER)
@@ -605,23 +607,22 @@ survey_data[Constants.J_OTHER_INTERVENTION_TYPE] = find_intervention_type(survey
 
 # Submit button
 if st.button("Submit"):
-    # Save responses to CSV file
-    file = "responses.csv"
-    df = pd.DataFrame([survey_data])
+    headers = sheet.row_values(1)
+    if not headers:
+        sheet.append_row((list(survey_data.keys())))
+        headers = list(survey_data.keys())
 
-    if os.path.exists(file):
-        df.to_csv(file, mode="a", header=False, index=False)
-    else:
-        df.to_csv(file, index=False)
+    row = [survey_data.get(h,"") for h in headers]
+    sheet.append_row(row)
 
     st.toast("✅ Response submitted! Thank you.")
 
-# Optional: view all responses (for admin)
-if st.checkbox("Show all responses"):
-    if os.path.exists("responses.csv"):
-        st.dataframe(pd.read_csv("responses.csv"))
-    else:
-        st.warning("No responses yet.")
+# # Optional: view all responses (for admin)
+# if st.checkbox("Show all responses"):
+#     if os.path.exists("responses.csv"):
+#         st.dataframe(pd.read_csv("responses.csv"))
+#     else:
+#         st.warning("No responses yet.")
 
 # st.download_button(
 #     label="Download CSV",
