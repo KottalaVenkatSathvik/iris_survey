@@ -1,3 +1,5 @@
+import os.path
+
 import gspread
 import streamlit as st
 
@@ -10,9 +12,10 @@ import Constants
 from Constants import Q_GAD_BECOMING_EASILY_ANNOYED, Q_GAD_FEELING_AFRAID, TOTAL_E_AMPHETAMINES_SCORE, \
     TOTAL_F_INHALANTS_SCORE
 from survey_data_schema import survey_data
-
-
-creds= Credentials.from_service_account_file("survey-account.json",scopes=Constants.scope)
+service_acnt_path="survey-account.json"
+if os.path.exists("/etc/secrets/survey-account.json"):
+    service_acnt_path = "/etc/secrets/survey-account.json"
+creds= Credentials.from_service_account_file(service_acnt_path,scopes=Constants.scope)
 client =gspread.authorize(creds)
 sheet = client.open(Constants.SHEET_NAME).sheet1
 
