@@ -13,6 +13,7 @@ from Constants import Q_GAD_BECOMING_EASILY_ANNOYED, Q_GAD_FEELING_AFRAID, TOTAL
     TOTAL_F_INHALANTS_SCORE
 from survey_data_schema import survey_data
 service_acnt_path="survey-account.json"
+
 if os.path.exists("/etc/secrets/survey-account.json"):
     service_acnt_path = "/etc/secrets/survey-account.json"
 creds= Credentials.from_service_account_file(service_acnt_path,scopes=Constants.scope)
