@@ -24,7 +24,7 @@ OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 mont
 
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
 
-Q_PATIENT_NAME = "Patient Name"
+Q_PATIENT_NAME = "Name"
 Q_AGE = "Age"
 Q_OCCUPATION ="Occupation"
 Q_EDUCATION ="Education"
