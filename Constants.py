@@ -1,6 +1,6 @@
-APP_TITTLE="Patient Survey - V1"
+APP_TITTLE="Survey details- Prevalance and patterns of drug misuse in women of reproductive age group"
 
-DEMOGRAPHIC_DETAILS_SUBHEADER ="Patient Demographic Details"
+DEMOGRAPHIC_DETAILS_SUBHEADER ="Demographic Details"
 YES ="Yes"
 NEVER="Never"
 YES_OR_NO_OPTIONS = ["No","Yes"]
