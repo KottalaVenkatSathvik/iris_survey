@@ -26,7 +26,7 @@ OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Month":"
 
 #DEMOGRAPHIC DETAILS SECTION
 
-Q_PATIENT_NAME = "Patient Name"
+Q_PATIENT_NAME = "Name"
 Q_AGE = "Age"
 Q_LOCATION ="Location"
 Q_OCCUPATION ="Occupation"
