@@ -142,6 +142,32 @@ survey_data[Constants.Q_GAD_FEELING_AFRAID]=a_gad_feeling_afraid[1]
 total_gad_score = a_gad_feeling_nerv[1] + a_gad_not_being_able[1] + a_gad_worrying_too_much[1] + a_gad_trouble_relaxing[1] + a_gad_being_so_restless[1] + a_gad_becoming_easily_annoyed[1] + a_gad_feeling_afraid[1]
 survey_data['TOTAL_GAD_SCORE'] = total_gad_score
 
+############################# Drug Abuse Screening Test (DAST-10) SECTION - START #####################################
+st.header(Constants.DAST_HEADER)
+a_dast_drugs_used_med_reasons = st.radio(Constants.Q_DAST_DRUGS_USED_MED_REASONS,Constants.YES_OR_NO_OPTIONS)
+a_dast_more_than_one_drug_at_a_time = st.radio(Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME,Constants.YES_OR_NO_OPTIONS)
+a_dast_unable_stop_abusing_drugs = st.radio(Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS,Constants.YES_OR_NO_OPTIONS)
+a_dast_have_ever_had_blackouts = st.radio(Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS,Constants.YES_OR_NO_OPTIONS)
+a_dast_feel_bad_guilty = st.radio(Constants.Q_DAST_FEEL_BAD_GUILTY,Constants.YES_OR_NO_OPTIONS)
+a_dast_deos_ur_spouse_ever_comp = st.radio(Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP,Constants.YES_OR_NO_OPTIONS)
+a_dast_you_neglected_ur_family = st.radio(Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY,Constants.YES_OR_NO_OPTIONS)
+a_dast_have_you_engaged_in_illegal = st.radio(Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL,Constants.YES_OR_NO_OPTIONS)
+a_dast_expr_withdrawal_symptoms = st.radio(Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS, Constants.YES_OR_NO_OPTIONS)
+a_dast_have_medical_problems = st.radio(Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS, Constants.YES_OR_NO_OPTIONS)
+
+#adding DAST RELATED ANSWERS TO 'survey_data'
+survey_data[Constants.Q_DAST_DRUGS_USED_MED_REASONS]=a_dast_drugs_used_med_reasons
+survey_data[Constants.Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME]=a_dast_more_than_one_drug_at_a_time
+survey_data[Constants.Q_DAST_UNABLE_STOP_ABUSING_DRUGS]=a_dast_unable_stop_abusing_drugs
+survey_data[Constants.Q_DAST_HAVE_EVER_HAD_BLACKOUTS]=a_dast_have_ever_had_blackouts
+survey_data[Constants.Q_DAST_FEEL_BAD_GUILTY]=a_dast_feel_bad_guilty
+survey_data[Constants.Q_DAST_DEOS_UR_SPOUSE_EVER_COMP]=a_dast_deos_ur_spouse_ever_comp
+survey_data[Constants.Q_DAST_YOU_NEGLECTED_UR_FAMILY]=a_dast_you_neglected_ur_family
+survey_data[Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL]=a_dast_have_you_engaged_in_illegal
+survey_data[Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS]=a_dast_expr_withdrawal_symptoms
+survey_data[Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS]=a_dast_have_medical_problems
+
+
 
 ############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
 st.header(Constants.PHQ_HEADER)
