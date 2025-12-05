@@ -66,7 +66,7 @@ Q_HOW_MANY_ABORTED = "How many aborted ?"
 Q_MENSTRUAL_CYCLE="Menstrual Cycle"
 Q_MENSTRUAL_CYCLE_OPTIONS = ["Regular","Irregular"]
 Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ ="Irregular Menstrual cycle Frequency"
-Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"})
+Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"}).items()
 
 Q_PCOD = "PCOD"
 Q_PCOS = "PCOS"
