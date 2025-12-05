@@ -59,6 +59,18 @@ Q_IS_PHYSICAL_ACTIVITY_YES ="If Yes , Give Physical activity details"
 Q_NUMBER_OF_CHILDREN = "Number of Children"
 Q_MARITAL_STS = "Marital Status"
 
+Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO ="Any partner voilence ?"
+Q_ABORTIONS = "Abortion's"
+Q_HOW_MANY_ABORTED = "How many aborted ?"
+
+Q_MENSTRUAL_CYCLE="Menstrual Cycle"
+Q_MENSTRUAL_CYCLE_OPTIONS = ["Regular","Irregular"]
+Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ ="Irregular Menstrual cycle Frequency"
+Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"})
+
+Q_PCOD = "PCOD"
+Q_PCOS = "PCOS"
+
 # PAST 3 MONTHS PREVALENCE SECTION
 Q_PAST_3_MONTHS_PREVALENCE = "Past 3 months Prevalence"
 Q_PRESCRIPTION_MEDI="Any Physician Prescription Medications ?"

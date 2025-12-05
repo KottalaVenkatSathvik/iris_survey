@@ -89,10 +89,36 @@ survey_data[Constants.Q_PHYSICAL_ACTIVITY]=physical_activity
 if physical_activity==Constants.YES:
     physical_activity_details = st.text_input(Constants.Q_IS_PHYSICAL_ACTIVITY_YES)
     survey_data[Constants.Q_IS_PHYSICAL_ACTIVITY_YES]=physical_activity_details
+    
 marital_status = st.radio(Constants.Q_MARITAL_STS, Constants.MARITAL_STATUS_OPTIONS)
-num_of_children = st.number_input(Constants.Q_NUMBER_OF_CHILDREN,min_value=0)
 survey_data[Constants.Q_MARITAL_STS]=marital_status
+
+if marital_status == Constants.MARITAL_STATUS_OPTIONS[0]:
+    any_physical_voilence = st.radio(Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO,Constants.YES_OR_NO_OPTIONS)
+    survey_data[Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO] = any_physical_voilence
+    
+num_of_children = st.number_input(Constants.Q_NUMBER_OF_CHILDREN,min_value=0)
 survey_data[Constants.Q_NUMBER_OF_CHILDREN]=num_of_children
+
+abortions = st.radio(Constants.Q_ABORTIONS,Constants.YES_OR_NO_OPTIONS)
+survey_data[Constants.Q_ABORTIONS] = abortions
+if abortions == Constants.YES:
+    how_many_abortions=st.number_input(Constants.Q_HOW_MANY_ABORTED,min_value=0)
+    survey_data[Constants.Q_HOW_MANY_ABORTED] = how_many_abortions
+    
+menstrual_cycle = st.radio(Constants.Q_MENSTRUAL_CYCLE,Constants.Q_MENSTRUAL_CYCLE_OPTIONS)
+survey_data[Constants.Q_MENSTRUAL_CYCLE] = menstrual_cycle
+
+if menstrual_cycle == Constants.Q_MENSTRUAL_CYCLE_OPTIONS[1]:
+    frequency_irregular = st.selectbox(Constants.Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ,Constants.Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS)
+    survey_data[Constants.Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ]=frequency_irregular[0]
+
+pocd = st.radio(Constants.Q_PCOD,Constants.YES_OR_NO_OPTIONS)
+pcos = st.radio(Constants.Q_PCOS,Constants.YES_OR_NO_OPTIONS)
+survey_data[Constants.Q_PCOD] = pocd
+survey_data[Constants.Q_PCOS] = pcos
+
+#######################
 
 st.subheader(Constants.Q_PAST_3_MONTHS_PREVALENCE)
 any_prescription_medications = st.radio(Constants.Q_PRESCRIPTION_MEDI,Constants.YES_OR_NO_OPTIONS)
