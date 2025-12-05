@@ -142,6 +142,33 @@ survey_data[Constants.Q_GAD_FEELING_AFRAID]=a_gad_feeling_afraid[1]
 total_gad_score = a_gad_feeling_nerv[1] + a_gad_not_being_able[1] + a_gad_worrying_too_much[1] + a_gad_trouble_relaxing[1] + a_gad_being_so_restless[1] + a_gad_becoming_easily_annoyed[1] + a_gad_feeling_afraid[1]
 survey_data['TOTAL_GAD_SCORE'] = total_gad_score
 
+
+
+
+############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
+st.header(Constants.PHQ_HEADER)
+st.info(Constants.PHQ_OPTIONS_INFO)
+a_PHQ_little_interest= st.selectbox(Constants.Q_PHQ_LITTLE_INTEREST, Constants.PHQ_OPTIONS,format_func= lambda  x : x[0])
+a_PHQ_feeling_down =st.selectbox(Constants.Q_PHQ_FEELING_DOWN, Constants.PHQ_OPTIONS ,format_func= lambda  x : x[0] )
+a_PHQ_trouble_falling = st.selectbox(Constants.Q_PHQ_TROUBLE_FALLING, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_feeling_tired = st.selectbox(Constants.Q_PHQ_FEELING_TIRED, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_poor_appetite=st.selectbox(Constants.Q_PHQ_POOR_APPETITE, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_feeling_bad_about_ur_self=st.selectbox(Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_trouble_concentration = st.selectbox(Constants.Q_PHQ_TROUBLE_CONCENTRATION,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_moving_or_speaking_so_slow = st.selectbox(Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_thoughts_that=st.selectbox(Constants.Q_PHQ_THOUGHTS_THAT,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+
+#adding PHQ RELATED ANSWERS TO 'survey_data'
+survey_data[Constants.Q_PHQ_LITTLE_INTEREST]=a_PHQ_little_interest[1]
+survey_data[Constants.Q_PHQ_FEELING_DOWN]=a_PHQ_feeling_down[1]
+survey_data[Constants.Q_PHQ_TROUBLE_FALLING]=a_PHQ_trouble_falling[1]
+survey_data[Constants.Q_PHQ_FEELING_TIRED]=a_PHQ_feeling_tired[1]
+survey_data[Constants.Q_PHQ_POOR_APPETITE]=a_PHQ_poor_appetite[1]
+survey_data[Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF]=a_PHQ_feeling_bad_about_ur_self[1]
+survey_data[Constants.Q_PHQ_TROUBLE_CONCENTRATION]=a_PHQ_trouble_concentration[1]
+survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking_so_slow[1]
+survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
+
 ############################# Drug Abuse Screening Test (DAST-10) SECTION - START #####################################
 st.header(Constants.DAST_HEADER)
 a_dast_drugs_used_med_reasons = st.radio(Constants.Q_DAST_DRUGS_USED_MED_REASONS,Constants.YES_OR_NO_OPTIONS)
@@ -196,34 +223,6 @@ else:
 survey_data[Constants.Q_DEGREE_OF_PROBLEM_RELATED_TO_DRUG_ABUSE]  = degree_cal['degree']
 
 survey_data[Constants.Q_SUGGESTED_ACTION]  = degree_cal['action']
-    
-
-
-############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
-st.header(Constants.PHQ_HEADER)
-st.info(Constants.PHQ_OPTIONS_INFO)
-a_PHQ_little_interest= st.selectbox(Constants.Q_PHQ_LITTLE_INTEREST, Constants.PHQ_OPTIONS,format_func= lambda  x : x[0])
-a_PHQ_feeling_down =st.selectbox(Constants.Q_PHQ_FEELING_DOWN, Constants.PHQ_OPTIONS ,format_func= lambda  x : x[0] )
-a_PHQ_trouble_falling = st.selectbox(Constants.Q_PHQ_TROUBLE_FALLING, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_feeling_tired = st.selectbox(Constants.Q_PHQ_FEELING_TIRED, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_poor_appetite=st.selectbox(Constants.Q_PHQ_POOR_APPETITE, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_feeling_bad_about_ur_self=st.selectbox(Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_trouble_concentration = st.selectbox(Constants.Q_PHQ_TROUBLE_CONCENTRATION,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_moving_or_speaking_so_slow = st.selectbox(Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_thoughts_that=st.selectbox(Constants.Q_PHQ_THOUGHTS_THAT,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-
-#adding PHQ RELATED ANSWERS TO 'survey_data'
-survey_data[Constants.Q_PHQ_LITTLE_INTEREST]=a_PHQ_little_interest[1]
-survey_data[Constants.Q_PHQ_FEELING_DOWN]=a_PHQ_feeling_down[1]
-survey_data[Constants.Q_PHQ_TROUBLE_FALLING]=a_PHQ_trouble_falling[1]
-survey_data[Constants.Q_PHQ_FEELING_TIRED]=a_PHQ_feeling_tired[1]
-survey_data[Constants.Q_PHQ_POOR_APPETITE]=a_PHQ_poor_appetite[1]
-survey_data[Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF]=a_PHQ_feeling_bad_about_ur_self[1]
-survey_data[Constants.Q_PHQ_TROUBLE_CONCENTRATION]=a_PHQ_trouble_concentration[1]
-survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking_so_slow[1]
-survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
-
-
 
 ############################# ASSIST V3.1 - START #####################################
 st.header(Constants.ASSIST_V3_HEADER)
