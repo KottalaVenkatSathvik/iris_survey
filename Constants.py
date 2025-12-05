@@ -88,13 +88,23 @@ DAST_HEADER = "Drug Abuse Screening Test (DAST-10)"
 Q_DAST_DRUGS_USED_MED_REASONS = "Have you used drugs other than those required for medical reasons ?"
 Q_DAST_MORE_THAN_ONE_DRUG_AT_A_TIME = "Do you abuse more than one drug at a time ?"
 Q_DAST_UNABLE_STOP_ABUSING_DRUGS = "Are you unable to stop abusing drugs when you want to ?"
-Q_DAST_HAVE_EVER_HAD_BLACKOUTS = "Have you ever had blackouts or flashbacks as result of drug user ?"
+Q_DAST_HAVE_EVER_HAD_BLACKOUTS = "Have you ever had blackouts or flashbacks as a result of drug use ?"
 Q_DAST_FEEL_BAD_GUILTY = "Do you feel bad or guilty about your drug use ?"
 Q_DAST_DEOS_UR_SPOUSE_EVER_COMP = "Does your spouse (or parents) ever complain about your involvement with drugs ?"
 Q_DAST_YOU_NEGLECTED_UR_FAMILY = "Have you neglected your family because of your use of drugs ?"
 Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL = "Have you engaged in illegal activities in order to obtain drugs ?"
 Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS = "Have your ever experienced withdrawal symptoms (felt sick) when you stopped taking drugs ?"
 Q_DAST_HAVE_MEDICAL_PROBLEMS = "Have you had medical problems as a result of your drug use (e.g memory loss , hepatitis,convulsions, bleeding) ?"
+Q_DAST_INTERPRETION_OF_SCORE = "Interpretation of Score"
+Q_DEGREE_OF_PROBLEM_RELATED_TO_DRUG_ABUSE = "Degree of Problems Related to Drug Abuse"
+Q_SUGGESTED_ACTION="Suggested Action"
+
+DEGREE_OF_PROB_NO_PROBL = {"degree":"No Problems reported","action":"None at this Time"}
+DEGREE_OF_PROB_LOW_LEVEL = {"degree":"Low Level","action":"Monitor, re-assess at a later date"}
+DEGREE_OF_PROB_MODERATE_LEVEL = {"degree":"Moderate Level","action":"Further Investigation"}
+DEGREE_OF_PROB_SUBSTANTIAL_LEVEL ={"degree":"Substantial Level","action":"Intensive assessment"}
+DEGREE_OF_PROB_SEVERE_LEVEL = {"degree":"Severe Level","action":"Intensive assessment"}
+
 
 # PATIENT HEALTH QUESTIONNAIRE -9 (PHQ-9) SECTION
 PHQ_HEADER = "Patient Health Questionnaire -9 (PHQ-9)"

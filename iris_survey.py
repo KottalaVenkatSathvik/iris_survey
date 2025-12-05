@@ -167,6 +167,36 @@ survey_data[Constants.Q_DAST_HAVE_YOU_ENGAGED_IN_ILLEGAL]=a_dast_have_you_engage
 survey_data[Constants.Q_DAST_EXPR_WITHDRAWAL_SYMPTOMS]=a_dast_expr_withdrawal_symptoms
 survey_data[Constants.Q_DAST_HAVE_MEDICAL_PROBLEMS]=a_dast_have_medical_problems
 
+a_dast1_score = 1 if a_dast_drugs_used_med_reasons == Constants.YES else 0
+a_dast2_score = 1 if a_dast_more_than_one_drug_at_a_time == Constants.YES else 0
+a_dast3_score = 0 if a_dast_unable_stop_abusing_drugs == Constants.YES else 1
+a_dast4_score = 1 if a_dast_have_ever_had_blackouts == Constants.YES else 0
+a_dast5_score = 1 if a_dast_feel_bad_guilty == Constants.YES else 0
+a_dast6_score = 1 if a_dast_deos_ur_spouse_ever_comp == Constants.YES else 0
+a_dast7_score = 1 if a_dast_you_neglected_ur_family == Constants.YES else 0
+a_dast8_score = 1 if a_dast_have_you_engaged_in_illegal == Constants.YES else 0
+a_dast9_score = 1 if a_dast_expr_withdrawal_symptoms == Constants.YES else 0
+a_dast10_score = 1 if a_dast_have_medical_problems == Constants.YES else 0
+
+interpretion_score = a_dast1_score + a_dast2_score+a_dast3_score+a_dast4_score+a_dast5_score+a_dast6_score+a_dast7_score+a_dast8_score+a_dast9_score+a_dast10_score
+survey_data[Constants.Q_DAST_INTERPRETION_OF_SCORE] = interpretion_score
+degree_cal=''
+
+if interpretion_score == 0:
+    degree_cal =Constants.DEGREE_OF_PROB_NO_PROBL    
+elif 1<= interpretion_score <=2:
+    degree_cal = Constants.DEGREE_OF_PROB_LOW_LEVEL    
+elif 3<= interpretion_score <=5:
+    degree_cal = Constants.DEGREE_OF_PROB_MODERATE_LEVEL
+elif 6<= interpretion_score <=8:
+    degree_cal = Constants.DEGREE_OF_PROB_SUBSTANTIAL_LEVEL
+else:
+    degree_cal = Constants.DEGREE_OF_PROB_SEVERE_LEVEL
+  
+survey_data[Constants.Q_DEGREE_OF_PROBLEM_RELATED_TO_DRUG_ABUSE]  = degree_cal['degree']
+
+survey_data[Constants.Q_SUGGESTED_ACTION]  = degree_cal['action']
+    
 
 
 ############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
