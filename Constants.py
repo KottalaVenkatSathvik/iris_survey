@@ -24,15 +24,23 @@ OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 mont
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
 OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Month":"Past 1 Month","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
 
+Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","House Wife","Retired","Any Disability","Unemployed"]
+Q_EDUCATIONAL_ATTAINMENT_OPTIONS = ["Less Than High School","High School","Some College","Under Graduate","Post Graduate"]
+Q_NUMBER_CHILDREN_OPTIONS =[0,1,2,3,4]
+Q_C_SECTION_NORMAL_OPTIONS =["Normal","C-Section"]
+Q_HISTORY_CHILD_BIRTH_OPTIONS = ["Preterm Labours","Preterm Birth (Delivered Before 37 weeks)","Arterial Birth","Post-term Birth","Other"]
 #DEMOGRAPHIC DETAILS SECTION
 
 Q_PATIENT_NAME = "Name"
 Q_AGE = "Age"
 Q_LOCATION ="Location"
-Q_OCCUPATION ="Occupation"
+# Q_OCCUPATION ="Occupation"
+Q_EMPLOYMENT_STATUS="Employment Status"
 Q_EDUCATION ="Education"
+Q_EDUCATIONAL_ATTAINMENT ="Educational Attainment"
 
-PAST_MEDICAL_HISTORY_SUB_HEADER = "Past Medical History"
+
+PAST_MEDICAL_HISTORY_SUB_HEADER = "Medical History"
 Q_ALLERGIES = "Allergies/Medications/Food/Environment/Others"
 Q_ALLERGIES_DETAILS ="If Yes, What allergies you have ?"
 Q_SURGICAL_HIST = "Surgical Procedures/Injuries"
@@ -57,17 +65,27 @@ Q_DIET = "Diet"
 Q_PHYSICAL_ACTIVITY = "Physical Activity"
 Q_IS_PHYSICAL_ACTIVITY_YES ="If Yes , Give Physical activity details"
 Q_NUMBER_OF_CHILDREN = "Number of Children"
+Q_C_SEC_NORMAL = "Child {NO} C-Section/Normal Birth"
+Q_CHILD_1_C_SEC_NORMAL = "Child 1 C-Section/Normal Birth"
+Q_CHILD_2_C_SEC_NORMAL = "Child 2 C-Section/Normal Birth"
+Q_CHILD_3_C_SEC_NORMAL = "Child 3 C-Section/Normal Birth"
+Q_CHILD_4_C_SEC_NORMAL = "Child 4 C-Section/Normal Birth"
+Q_HISTORY_OF_CHILD_BIRTH = "Child {NO} History Of Birth"
+Q_CHILD_1_HISTORY_OF_CHILD_BIRTH = "Child 1 History Of Birth"
+Q_CHILD_2_HISTORY_OF_CHILD_BIRTH = "Child 2 History Of Birth"
+Q_CHILD_3_HISTORY_OF_CHILD_BIRTH = "Child 3 History Of Birth"
+Q_CHILD_4_HISTORY_OF_CHILD_BIRTH = "Child 4 History Of Birth"
 Q_MARITAL_STS = "Marital Status"
-
-Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO ="Any partner voilence ?"
+#IF SHE IS MARRIED
+Q_PRESENT_PREGNANCY ="Present Pregnancy"
+Q_IF_MARRIED_ANY_PY_PHYSICAL_VIOLENCE_YES_OR_NO ="Any partner violence ?"
 Q_ABORTIONS = "Abortion's"
 Q_HOW_MANY_ABORTED = "How many aborted ?"
 
 Q_MENSTRUAL_CYCLE="Menstrual Cycle"
 Q_MENSTRUAL_CYCLE_OPTIONS = ["Regular","Irregular"]
 Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ ="Irregular Menstrual cycle Frequency"
-Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"})
-
+Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"}.items())
 Q_PCOD = "PCOD"
 Q_PCOS = "PCOS"
 

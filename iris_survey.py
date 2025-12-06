@@ -28,16 +28,20 @@ st.header(Constants.DEMOGRAPHIC_DETAILS_SUBHEADER)
 name = st.text_input(Constants.Q_PATIENT_NAME)
 age = st.number_input(Constants.Q_AGE, min_value=0, max_value=150)
 location = st.text_input(Constants.Q_LOCATION)
-occupation = st.text_input(Constants.Q_OCCUPATION)
+# occupation = st.text_input(Constants.Q_OCCUPATION)
+employment_status = st.selectbox(Constants.Q_EMPLOYMENT_STATUS,Constants.Q_EMPLOYMENT_STATUS_OPTIONS,format_func=lambda x: x)
 education = st.text_input(Constants.Q_EDUCATION)
+education_attainment = st.selectbox(Constants.Q_EDUCATIONAL_ATTAINMENT,Constants.Q_EDUCATIONAL_ATTAINMENT_OPTIONS,format_func=lambda x: x)
 
 survey_data[Constants.Q_PATIENT_NAME] = name
 survey_data[Constants.Q_AGE] = age
 survey_data[Constants.Q_LOCATION] = location
-survey_data[Constants.Q_OCCUPATION] = occupation
-survey_data[Constants.Q_EDUCATION] = education
+# survey_data[Constants.Q_OCCUPATION] = occupation
+# survey_data[Constants.Q_EDUCATION] = education
+survey_data[Constants.Q_EMPLOYMENT_STATUS] = employment_status[1]
+survey_data[Constants.Q_EDUCATIONAL_ATTAINMENT] = education_attainment
 
-
+############################## PAST_MEDICAL_HISTORY_SUB_HEADER
 st.subheader(Constants.PAST_MEDICAL_HISTORY_SUB_HEADER)
 allergies = st.radio(Constants.Q_ALLERGIES,Constants.YES_OR_NO_OPTIONS)
 survey_data[Constants.Q_ALLERGIES] = allergies
@@ -67,7 +71,7 @@ survey_data[Constants.Q_HYPO_THYROID] =a_hypo_thyroid
 survey_data[Constants.Q_COPD] =a_copd
 survey_data[Constants.Q_PEPTIC_ULCER_DISEASE] =a_peptic_ulcer_disease
 survey_data[Constants.Q_OTHER_MEDICAL_HIST] =a_OTHER
-
+############################## SOCIAL_HISTORY_SUB_HEADER
 st.subheader(Constants.SOCIAL_HISTORY_SUB_HEADER)
 substance_used = st.radio(Constants.Q_SUBSTANCES_USE,Constants.YES_OR_NO_OPTIONS)
 if substance_used == Constants.YES:
@@ -89,36 +93,57 @@ survey_data[Constants.Q_PHYSICAL_ACTIVITY]=physical_activity
 if physical_activity==Constants.YES:
     physical_activity_details = st.text_input(Constants.Q_IS_PHYSICAL_ACTIVITY_YES)
     survey_data[Constants.Q_IS_PHYSICAL_ACTIVITY_YES]=physical_activity_details
-    
+#####################################################
 marital_status = st.radio(Constants.Q_MARITAL_STS, Constants.MARITAL_STATUS_OPTIONS)
 survey_data[Constants.Q_MARITAL_STS]=marital_status
-
 if marital_status == Constants.MARITAL_STATUS_OPTIONS[0]:
-    any_physical_voilence = st.radio(Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO,Constants.YES_OR_NO_OPTIONS)
-    survey_data[Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VOILENCE_YES_OR_NO] = any_physical_voilence
-    
-num_of_children = st.number_input(Constants.Q_NUMBER_OF_CHILDREN,min_value=0)
-survey_data[Constants.Q_NUMBER_OF_CHILDREN]=num_of_children
+    present_pregency = st.radio(Constants.Q_PRESENT_PREGNANCY,Constants.YES_OR_NO_OPTIONS)
+    survey_data[Constants.Q_PRESENT_PREGNANCY] = present_pregency
+    any_physical_violence = st.radio(Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VIOLENCE_YES_OR_NO,Constants.YES_OR_NO_OPTIONS)
+    survey_data[Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VIOLENCE_YES_OR_NO] = any_physical_violence
+    #########################################################
+    num_of_children = st.selectbox(Constants.Q_NUMBER_OF_CHILDREN,Constants.Q_NUMBER_CHILDREN_OPTIONS)
+    survey_data[Constants.Q_NUMBER_OF_CHILDREN]=num_of_children
+    if num_of_children>0:
+        children_data={}
+        for i in range(1,int(num_of_children)+1):
+            c_normal = st.selectbox(Constants.Q_C_SEC_NORMAL.format(NO=i),Constants.Q_C_SECTION_NORMAL_OPTIONS)
+            children_data[i]=c_normal
 
-abortions = st.radio(Constants.Q_ABORTIONS,Constants.YES_OR_NO_OPTIONS)
-survey_data[Constants.Q_ABORTIONS] = abortions
-if abortions == Constants.YES:
-    how_many_abortions=st.number_input(Constants.Q_HOW_MANY_ABORTED,min_value=0)
-    survey_data[Constants.Q_HOW_MANY_ABORTED] = how_many_abortions
-    
+        survey_data[Constants.Q_CHILD_1_C_SEC_NORMAL] =children_data.get(1,'')
+        survey_data[Constants.Q_CHILD_2_C_SEC_NORMAL] =children_data.get(2,'')
+        survey_data[Constants.Q_CHILD_3_C_SEC_NORMAL] =children_data.get(3,'')
+        survey_data[Constants.Q_CHILD_4_C_SEC_NORMAL] =children_data.get(4,'')
+        children_data_hist={}
+
+        for i in range(1,int(num_of_children)+1):
+            c_normal = st.selectbox(Constants.Q_HISTORY_OF_CHILD_BIRTH.format(NO=i),Constants.Q_HISTORY_CHILD_BIRTH_OPTIONS)
+            children_data_hist[i]=c_normal
+
+        survey_data[Constants.Q_CHILD_1_HISTORY_OF_CHILD_BIRTH] =children_data_hist.get(1,'')
+        survey_data[Constants.Q_CHILD_2_HISTORY_OF_CHILD_BIRTH] =children_data_hist.get(2,'')
+        survey_data[Constants.Q_CHILD_3_HISTORY_OF_CHILD_BIRTH] =children_data_hist.get(3,'')
+        survey_data[Constants.Q_CHILD_4_HISTORY_OF_CHILD_BIRTH] =children_data_hist.get(4,'')
+
+    ########################################################
+    abortions = st.radio(Constants.Q_ABORTIONS,Constants.YES_OR_NO_OPTIONS)
+    survey_data[Constants.Q_ABORTIONS] = abortions
+    if abortions == Constants.YES:
+        how_many_abortions=st.number_input(Constants.Q_HOW_MANY_ABORTED,min_value=0)
+        survey_data[Constants.Q_HOW_MANY_ABORTED] = how_many_abortions
+#################################
 menstrual_cycle = st.radio(Constants.Q_MENSTRUAL_CYCLE,Constants.Q_MENSTRUAL_CYCLE_OPTIONS)
 survey_data[Constants.Q_MENSTRUAL_CYCLE] = menstrual_cycle
-
 if menstrual_cycle == Constants.Q_MENSTRUAL_CYCLE_OPTIONS[1]:
-    frequency_irregular = st.selectbox(Constants.Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ,Constants.Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS)
+    frequency_irregular = st.selectbox(Constants.Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ,Constants.Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS,format_func= lambda x : x[0])
     survey_data[Constants.Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ]=frequency_irregular[0]
-
+#################################
 pocd = st.radio(Constants.Q_PCOD,Constants.YES_OR_NO_OPTIONS)
 pcos = st.radio(Constants.Q_PCOS,Constants.YES_OR_NO_OPTIONS)
 survey_data[Constants.Q_PCOD] = pocd
 survey_data[Constants.Q_PCOS] = pcos
 
-#######################
+#######################################Q_PAST_3_MONTHS_PREVALENCE
 
 st.subheader(Constants.Q_PAST_3_MONTHS_PREVALENCE)
 any_prescription_medications = st.radio(Constants.Q_PRESCRIPTION_MEDI,Constants.YES_OR_NO_OPTIONS)
@@ -146,54 +171,6 @@ survey_data[Constants.Q_PRESCRIPTION_MEDI]=any_prescription_medications
 survey_data[Constants.Q_NON_PRESCRIPTION_MEDI]=any_non_prescription_medications
 survey_data[Constants.Q_OTC_MEDI]=any_otc_medications
 
-############################# GAD-7 Anxiety SECTION - START #####################################
-st.header(Constants.GAD_7_ANXIETY_HEADER)
-# st.info(Constants.GAD_7_ANXIETY_OPTIONS_INFO)
-a_gad_feeling_nerv = st.selectbox(Constants.Q_FEELING_NERVOUS,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_not_being_able = st.selectbox(Constants.Q_NOT_ABLE_STOP_WORRY,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_worrying_too_much = st.selectbox(Constants.Q_GAD_WORRYING_TOO_MUCH,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_trouble_relaxing = st.selectbox(Constants.Q_GAD_TROUBLE_RELAXING,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_being_so_restless = st.selectbox(Constants.Q_GAD_BEING_SO_RESTLESS,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_becoming_easily_annoyed = st.selectbox(Q_GAD_BECOMING_EASILY_ANNOYED,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-a_gad_feeling_afraid = st.selectbox(Q_GAD_FEELING_AFRAID,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
-
-survey_data[Constants.Q_FEELING_NERVOUS]=a_gad_feeling_nerv[1]
-survey_data[Constants.Q_NOT_ABLE_STOP_WORRY]=a_gad_not_being_able[1]
-survey_data[Constants.Q_GAD_WORRYING_TOO_MUCH]=a_gad_worrying_too_much[1]
-survey_data[Constants.Q_GAD_TROUBLE_RELAXING]=a_gad_trouble_relaxing[1]
-survey_data[Constants.Q_GAD_BEING_SO_RESTLESS]=a_gad_being_so_restless[1]
-survey_data[Constants.Q_GAD_BECOMING_EASILY_ANNOYED]=a_gad_becoming_easily_annoyed[1]
-survey_data[Constants.Q_GAD_FEELING_AFRAID]=a_gad_feeling_afraid[1]
-
-total_gad_score = a_gad_feeling_nerv[1] + a_gad_not_being_able[1] + a_gad_worrying_too_much[1] + a_gad_trouble_relaxing[1] + a_gad_being_so_restless[1] + a_gad_becoming_easily_annoyed[1] + a_gad_feeling_afraid[1]
-survey_data['TOTAL_GAD_SCORE'] = total_gad_score
-
-
-
-
-############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
-st.header(Constants.PHQ_HEADER)
-st.info(Constants.PHQ_OPTIONS_INFO)
-a_PHQ_little_interest= st.selectbox(Constants.Q_PHQ_LITTLE_INTEREST, Constants.PHQ_OPTIONS,format_func= lambda  x : x[0])
-a_PHQ_feeling_down =st.selectbox(Constants.Q_PHQ_FEELING_DOWN, Constants.PHQ_OPTIONS ,format_func= lambda  x : x[0] )
-a_PHQ_trouble_falling = st.selectbox(Constants.Q_PHQ_TROUBLE_FALLING, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_feeling_tired = st.selectbox(Constants.Q_PHQ_FEELING_TIRED, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_poor_appetite=st.selectbox(Constants.Q_PHQ_POOR_APPETITE, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_feeling_bad_about_ur_self=st.selectbox(Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_trouble_concentration = st.selectbox(Constants.Q_PHQ_TROUBLE_CONCENTRATION,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_moving_or_speaking_so_slow = st.selectbox(Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-a_PHQ_thoughts_that=st.selectbox(Constants.Q_PHQ_THOUGHTS_THAT,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
-
-#adding PHQ RELATED ANSWERS TO 'survey_data'
-survey_data[Constants.Q_PHQ_LITTLE_INTEREST]=a_PHQ_little_interest[1]
-survey_data[Constants.Q_PHQ_FEELING_DOWN]=a_PHQ_feeling_down[1]
-survey_data[Constants.Q_PHQ_TROUBLE_FALLING]=a_PHQ_trouble_falling[1]
-survey_data[Constants.Q_PHQ_FEELING_TIRED]=a_PHQ_feeling_tired[1]
-survey_data[Constants.Q_PHQ_POOR_APPETITE]=a_PHQ_poor_appetite[1]
-survey_data[Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF]=a_PHQ_feeling_bad_about_ur_self[1]
-survey_data[Constants.Q_PHQ_TROUBLE_CONCENTRATION]=a_PHQ_trouble_concentration[1]
-survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking_so_slow[1]
-survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
 
 ############################# Drug Abuse Screening Test (DAST-10) SECTION - START #####################################
 st.header(Constants.DAST_HEADER)
@@ -689,6 +666,53 @@ survey_data[Constants.G_SEDATIVES_INTERVENTION_TYPE] = find_intervention_type(su
 survey_data[Constants.H_HALLUCINOGENS_INTERVENTION_TYPE] = find_intervention_type(survey_data[Constants.TOTAL_H_HALLUCINOGENS_SCORE],0,4,27)
 survey_data[Constants.I_OPIOIDS_INTERVENTION_TYPE] = find_intervention_type(survey_data[Constants.TOTAL_I_OPIOIDS_SCORE],0,4,27)
 survey_data[Constants.J_OTHER_INTERVENTION_TYPE] = find_intervention_type(survey_data[Constants.TOTAL_J_OTHER_DRUGS_SCORE],0,4,27)
+
+
+############################# GAD-7 Anxiety SECTION - START #####################################
+st.header(Constants.GAD_7_ANXIETY_HEADER)
+# st.info(Constants.GAD_7_ANXIETY_OPTIONS_INFO)
+a_gad_feeling_nerv = st.selectbox(Constants.Q_FEELING_NERVOUS,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_not_being_able = st.selectbox(Constants.Q_NOT_ABLE_STOP_WORRY,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_worrying_too_much = st.selectbox(Constants.Q_GAD_WORRYING_TOO_MUCH,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_trouble_relaxing = st.selectbox(Constants.Q_GAD_TROUBLE_RELAXING,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_being_so_restless = st.selectbox(Constants.Q_GAD_BEING_SO_RESTLESS,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_becoming_easily_annoyed = st.selectbox(Q_GAD_BECOMING_EASILY_ANNOYED,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+a_gad_feeling_afraid = st.selectbox(Q_GAD_FEELING_AFRAID,Constants.GAD_7_ANXIETY_OPTIONS,format_func= lambda x : x[0])
+
+survey_data[Constants.Q_FEELING_NERVOUS]=a_gad_feeling_nerv[1]
+survey_data[Constants.Q_NOT_ABLE_STOP_WORRY]=a_gad_not_being_able[1]
+survey_data[Constants.Q_GAD_WORRYING_TOO_MUCH]=a_gad_worrying_too_much[1]
+survey_data[Constants.Q_GAD_TROUBLE_RELAXING]=a_gad_trouble_relaxing[1]
+survey_data[Constants.Q_GAD_BEING_SO_RESTLESS]=a_gad_being_so_restless[1]
+survey_data[Constants.Q_GAD_BECOMING_EASILY_ANNOYED]=a_gad_becoming_easily_annoyed[1]
+survey_data[Constants.Q_GAD_FEELING_AFRAID]=a_gad_feeling_afraid[1]
+
+total_gad_score = a_gad_feeling_nerv[1] + a_gad_not_being_able[1] + a_gad_worrying_too_much[1] + a_gad_trouble_relaxing[1] + a_gad_being_so_restless[1] + a_gad_becoming_easily_annoyed[1] + a_gad_feeling_afraid[1]
+survey_data['TOTAL_GAD_SCORE'] = total_gad_score
+
+############################# Patient Health Questionnaire -9 (PHQ-9) - START #####################################
+st.header(Constants.PHQ_HEADER)
+st.info(Constants.PHQ_OPTIONS_INFO)
+a_PHQ_little_interest= st.selectbox(Constants.Q_PHQ_LITTLE_INTEREST, Constants.PHQ_OPTIONS,format_func= lambda  x : x[0])
+a_PHQ_feeling_down =st.selectbox(Constants.Q_PHQ_FEELING_DOWN, Constants.PHQ_OPTIONS ,format_func= lambda  x : x[0] )
+a_PHQ_trouble_falling = st.selectbox(Constants.Q_PHQ_TROUBLE_FALLING, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_feeling_tired = st.selectbox(Constants.Q_PHQ_FEELING_TIRED, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_poor_appetite=st.selectbox(Constants.Q_PHQ_POOR_APPETITE, Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_feeling_bad_about_ur_self=st.selectbox(Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_trouble_concentration = st.selectbox(Constants.Q_PHQ_TROUBLE_CONCENTRATION,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_moving_or_speaking_so_slow = st.selectbox(Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+a_PHQ_thoughts_that=st.selectbox(Constants.Q_PHQ_THOUGHTS_THAT,  Constants.PHQ_OPTIONS , format_func= lambda  x : x[0])
+
+#adding PHQ RELATED ANSWERS TO 'survey_data'
+survey_data[Constants.Q_PHQ_LITTLE_INTEREST]=a_PHQ_little_interest[1]
+survey_data[Constants.Q_PHQ_FEELING_DOWN]=a_PHQ_feeling_down[1]
+survey_data[Constants.Q_PHQ_TROUBLE_FALLING]=a_PHQ_trouble_falling[1]
+survey_data[Constants.Q_PHQ_FEELING_TIRED]=a_PHQ_feeling_tired[1]
+survey_data[Constants.Q_PHQ_POOR_APPETITE]=a_PHQ_poor_appetite[1]
+survey_data[Constants.Q_PHQ_FEELING_BAD_ABOUT_UR_SELF]=a_PHQ_feeling_bad_about_ur_self[1]
+survey_data[Constants.Q_PHQ_TROUBLE_CONCENTRATION]=a_PHQ_trouble_concentration[1]
+survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking_so_slow[1]
+survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
 
 # Submit button
 if st.button("Submit"):
