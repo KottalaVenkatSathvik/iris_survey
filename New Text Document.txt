@@ -1,0 +1,9 @@
+survey-account.json
+
+
+
+else:
+    service_acnt_path = "survey-account.json"
+
+with open(service_acnt_path) as f:
+    service_acnt_info=json.load(f)
