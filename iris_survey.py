@@ -30,7 +30,7 @@ age = st.number_input(Constants.Q_AGE, min_value=0, max_value=150)
 location = st.text_input(Constants.Q_LOCATION)
 # occupation = st.text_input(Constants.Q_OCCUPATION)
 employment_status = st.selectbox(Constants.Q_EMPLOYMENT_STATUS,Constants.Q_EMPLOYMENT_STATUS_OPTIONS,format_func=lambda x: x)
-education = st.text_input(Constants.Q_EDUCATION)
+# education = st.text_input(Constants.Q_EDUCATION)
 education_attainment = st.selectbox(Constants.Q_EDUCATIONAL_ATTAINMENT,Constants.Q_EDUCATIONAL_ATTAINMENT_OPTIONS,format_func=lambda x: x)
 
 survey_data[Constants.Q_PATIENT_NAME] = name

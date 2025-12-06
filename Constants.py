@@ -28,7 +28,7 @@ Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","House Wife","Ret
 Q_EDUCATIONAL_ATTAINMENT_OPTIONS = ["Less Than High School","High School","Some College","Under Graduate","Post Graduate"]
 Q_NUMBER_CHILDREN_OPTIONS =[0,1,2,3,4]
 Q_C_SECTION_NORMAL_OPTIONS =["Normal","C-Section"]
-Q_HISTORY_CHILD_BIRTH_OPTIONS = ["Preterm Labours","Preterm Birth (Delivered Before 37 weeks)","Arterial Birth","Post-term Birth","Other"]
+Q_HISTORY_CHILD_BIRTH_OPTIONS = ["Preterm Labour","Premature Birth","Altered Birth","Other"]
 #DEMOGRAPHIC DETAILS SECTION
 
 Q_PATIENT_NAME = "Name"
@@ -36,7 +36,7 @@ Q_AGE = "Age"
 Q_LOCATION ="Location"
 # Q_OCCUPATION ="Occupation"
 Q_EMPLOYMENT_STATUS="Employment Status"
-Q_EDUCATION ="Education"
+# Q_EDUCATION ="Education"
 Q_EDUCATIONAL_ATTAINMENT ="Educational Attainment"
 
 
