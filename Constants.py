@@ -24,7 +24,7 @@ OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 mont
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
 OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Month":"Past 1 Month","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
 
-Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","House Wife","Retired","Any Disability","Unemployed"]
+Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","Housewife","Retired","Any Disability","Unemployed"]
 Q_EDUCATIONAL_ATTAINMENT_OPTIONS = ["Uneducated","Less Than High School","High School","Some College","Under Graduate","Post Graduate"]
 Q_NUMBER_CHILDREN_OPTIONS =[0,1,2,3,4]
 Q_C_SECTION_NORMAL_OPTIONS =["Normal","C-Section"]
