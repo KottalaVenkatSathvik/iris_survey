@@ -715,7 +715,7 @@ survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking
 survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
 
 total_PHQ_score = a_PHQ_little_interest[1] + a_PHQ_feeling_down[1] + a_PHQ_trouble_falling[1] + a_PHQ_poor_appetite[1] + a_PHQ_feeling_bad_about_ur_self[1] + a_PHQ_trouble_concentration[1] + a_PHQ_moving_or_speaking_so_slow[1]
-survey_data['TOTAL_PHQ_SCORE'] = total_gad_score
+survey_data['TOTAL_PHQ_SCORE'] = total_PHQ_score
 
 # Submit button
 if st.button("Submit"):
