@@ -100,7 +100,7 @@ Q_NON_PRESCRIPTION_MEDI_DETAILS = "Non Prescription Medications "
 Q_NON_PRESCRIPTION_MEDI_DURATION = "Non Prescription Medications Duration"
 
 Q_OTC_MEDI ="Any OTC Medications ?"
-Q_OTC_MEDI_DETAILS = "OTC Medications Medications"
+Q_OTC_MEDI_DETAILS = "OTC Medications"
 Q_OTC_MEDI_DURATION = "OTC Medications Duration"
 
 
