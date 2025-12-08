@@ -5,7 +5,7 @@ DEMOGRAPHIC_DETAILS_SUBHEADER ="Demographic Details"
 YES ="Yes"
 NEVER="Never"
 YES_OR_NO_OPTIONS = ["No","Yes"]
-DIET_OPTIONS = ["Veg", "Non-Veg"]
+DIET_OPTIONS = ["Veg", "Non-Veg","Mixed Diet"]
 MARITAL_STATUS_OPTIONS = ["Married", "Unmarried"]
 GAD_7_ANXIETY_OPTIONS = list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
 PHQ_OPTIONS= list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
@@ -24,11 +24,11 @@ OPTIONS_Q6_and_Q7_OFTEN_SUBSTANCES =  list({"Never": 0, "Yes, in the past 3 mont
 OPTIONS_DRUG_BY_INJECTION=list({"No,Never":"No,Never","Yes, in the past 3 months":"Yes, in the past 3 months","Yes, but not in the past 3 months":"Yes, but not in the past 3 months"}.items())
 OPTIONS_MEDICATIONS_DURATION =list({"Past 1 Week":"Past 1 Week","Past 1 Month":"Past 1 Month","Past 3 Months":"Past 3 Months","Past 12 Months":"Past 12 Months","Past 2 - 5 Years":"Past 2 - 5 Years"}.items())
 
-Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","House Wife","Retired","Any Disability","Unemployed"]
-Q_EDUCATIONAL_ATTAINMENT_OPTIONS = ["Less Than High School","High School","Some College","Under Graduate","Post Graduate"]
+Q_EMPLOYMENT_STATUS_OPTIONS=["Full Time","Part Time","Student","Housewife","Retired","Any Disability","Unemployed"]
+Q_EDUCATIONAL_ATTAINMENT_OPTIONS = ["Uneducated","Less Than High School","High School","Some College","Under Graduate","Post Graduate"]
 Q_NUMBER_CHILDREN_OPTIONS =[0,1,2,3,4]
 Q_C_SECTION_NORMAL_OPTIONS =["Normal","C-Section"]
-Q_HISTORY_CHILD_BIRTH_OPTIONS = ["Preterm Labour","Premature Birth","Altered Birth","Other"]
+Q_HISTORY_CHILD_BIRTH_OPTIONS = ["Preterm Labour","Premature Birth","Altered Birth","Healthy","Other"]
 #DEMOGRAPHIC DETAILS SECTION
 
 Q_PATIENT_NAME = "Name"
@@ -83,7 +83,7 @@ Q_ABORTIONS = "Abortion's"
 Q_HOW_MANY_ABORTED = "How many aborted ?"
 
 Q_MENSTRUAL_CYCLE="Menstrual Cycle"
-Q_MENSTRUAL_CYCLE_OPTIONS = ["Regular","Irregular"]
+Q_MENSTRUAL_CYCLE_OPTIONS = ["Regular","Irregular","No Menses"]
 Q_MENSTRUAL_CYCLE_IRREGULAR_FREQ ="Irregular Menstrual cycle Frequency"
 Q_MENSTRUAL_CYCLE_FREQUENCY_OPTIONS = list({"3 Months":"3 Months","6 Months":"6 Months","12 Months":"12 Months"}.items())
 Q_PCOD = "PCOD"
@@ -100,8 +100,8 @@ Q_NON_PRESCRIPTION_MEDI_DETAILS = "Non Prescription Medications "
 Q_NON_PRESCRIPTION_MEDI_DURATION = "Non Prescription Medications Duration"
 
 Q_OTC_MEDI ="Any OTC Medications ?"
-Q_OTC_MEDI_DETAILS = "OTC Medications Medications"
-Q_OTC_MEDI_DURATION = "OTC Medications Medications Duration"
+Q_OTC_MEDI_DETAILS = "OTC Medications"
+Q_OTC_MEDI_DURATION = "OTC Medications Duration"
 
 
 GAD_7_ANXIETY_HEADER= "GAD-7 Anxiety"
