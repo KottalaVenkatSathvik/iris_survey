@@ -101,7 +101,7 @@ Q_NON_PRESCRIPTION_MEDI_DURATION = "Non Prescription Medications Duration"
 
 Q_OTC_MEDI ="Any OTC Medications ?"
 Q_OTC_MEDI_DETAILS = "OTC Medications Medications"
-Q_OTC_MEDI_DURATION = "OTC Medications Medications Duration"
+Q_OTC_MEDI_DURATION = "OTC Medications Duration"
 
 
 GAD_7_ANXIETY_HEADER= "GAD-7 Anxiety"
