@@ -7,11 +7,13 @@ from google.oauth2.service_account import Credentials
 
 def find_intervention_type(value, low,mid,high):
     return Constants.NO_INTERVENTION if low <= value < mid else Constants.RECEIVE_BRIEF_INTERVENTION if mid <=value<high else Constants.MORE_INTENSIVE_TREATMENT
-
+import copy
 import Constants
 from Constants import Q_GAD_BECOMING_EASILY_ANNOYED, Q_GAD_FEELING_AFRAID, TOTAL_E_AMPHETAMINES_SCORE, \
     TOTAL_F_INHALANTS_SCORE
-from survey_data_schema import survey_data
+from survey_data_schema import SURVE_DATA_DEFAULT
+
+survey_data = copy.deepcopy(SURVE_DATA_DEFAULT)
 service_acnt_path="survey-account.json"
 
 if os.path.exists("/etc/secrets/survey-account.json"):
@@ -714,7 +716,7 @@ survey_data[Constants.Q_PHQ_TROUBLE_CONCENTRATION]=a_PHQ_trouble_concentration[1
 survey_data[Constants.Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW]=a_PHQ_moving_or_speaking_so_slow[1]
 survey_data[Constants.Q_PHQ_THOUGHTS_THAT]=a_PHQ_thoughts_that[1]
 
-total_PHQ_score = a_PHQ_little_interest[1] + a_PHQ_feeling_down[1] + a_PHQ_trouble_falling[1] + a_PHQ_poor_appetite[1] + a_PHQ_feeling_bad_about_ur_self[1] + a_PHQ_trouble_concentration[1] + a_PHQ_moving_or_speaking_so_slow[1]
+total_PHQ_score = a_PHQ_little_interest[1] + a_PHQ_feeling_down[1] + a_PHQ_trouble_falling[1] +a_PHQ_feeling_tired[1]+ a_PHQ_poor_appetite[1] + a_PHQ_feeling_bad_about_ur_self[1] + a_PHQ_trouble_concentration[1] + a_PHQ_moving_or_speaking_so_slow[1]+a_PHQ_thoughts_that[1]
 survey_data['TOTAL_PHQ_SCORE'] = total_PHQ_score
 
 # Submit button
