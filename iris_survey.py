@@ -98,7 +98,7 @@ if physical_activity==Constants.YES:
 #####################################################
 marital_status = st.radio(Constants.Q_MARITAL_STS, Constants.MARITAL_STATUS_OPTIONS)
 survey_data[Constants.Q_MARITAL_STS]=marital_status
-if marital_status == Constants.MARITAL_STATUS_OPTIONS[0]:
+if marital_status in [ Constants.MARITAL_STATUS_OPTIONS[0],Constants.MARITAL_STATUS_OPTIONS[2]]:
     present_pregency = st.radio(Constants.Q_PRESENT_PREGNANCY,Constants.YES_OR_NO_OPTIONS)
     survey_data[Constants.Q_PRESENT_PREGNANCY] = present_pregency
     any_physical_violence = st.radio(Constants.Q_IF_MARRIED_ANY_PY_PHYSICAL_VIOLENCE_YES_OR_NO,Constants.YES_OR_NO_OPTIONS)
