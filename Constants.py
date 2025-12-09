@@ -113,6 +113,7 @@ Q_GAD_TROUBLE_RELAXING = "Trouble relaxing "
 Q_GAD_BEING_SO_RESTLESS = "Being so restless that is it hard to sit still "
 Q_GAD_BECOMING_EASILY_ANNOYED = "Becoming easily annoyed or irritable"
 Q_GAD_FEELING_AFRAID = "Feeling afraid, as if something awful might happen"
+Q_TOTAL_GAD_SCORE="TOTAL_GAD_SCORE"
 
 DAST_HEADER = "Drug Abuse Screening Test (DAST-10)"
 Q_DAST_DRUGS_USED_MED_REASONS = "Have you used drugs other than those required for medical reasons ?"
@@ -148,7 +149,7 @@ Q_PHQ_FEELING_BAD_ABOUT_UR_SELF="Feeling bad about yourself - or that you are a 
 Q_PHQ_TROUBLE_CONCENTRATION = "Trouble concentrating on things, such as reading the newspaper or watching television"
 Q_PHQ_MOVING_OR_SPEAKING_SO_SLOW = "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual "
 Q_PHQ_THOUGHTS_THAT="Thoughts that you would be better off dead, or of hurting yourself in some way"
-
+Q_TOTAL_PHQ_SCORE='TOTAL_PHQ_SCORE'
 
 ASSIST_V3_HEADER = "WHO ASSIST V3.1"
 Q1_IN_LIFE_SUBSTANCES_USED_HEADER = "Q1.In your life, which of the following substances have you ever used? (NON-MEDICAL USE ONLY)"

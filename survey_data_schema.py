@@ -1,6 +1,6 @@
 import Constants
 
-survey_data ={
+SURVE_DEFAULTS ={
   # DEMOGRAPHIC DETAILS
 Constants.Q_PATIENT_NAME : '',
 Constants.Q_AGE:'',
@@ -164,6 +164,8 @@ Constants.Q7H_HALLUCINOGENS:'',
 Constants.Q7I_OPIOIDS:'',
 Constants.Q7J_OTHER_SPECIFY:'',
 Constants.Q7K_OTHER_SPECIFY_YES:'',
-Constants.Q8_HAVE_YOU_EVER_USED_ANY_DRUG_BY_INJECTION:''
+Constants.Q8_HAVE_YOU_EVER_USED_ANY_DRUG_BY_INJECTION:'',
+Constants.Q_TOTAL_PHQ_SCORE:'',
+Constants.Q_TOTAL_GAD_SCORE:''
 
 }
