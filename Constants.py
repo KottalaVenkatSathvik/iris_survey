@@ -6,7 +6,7 @@ YES ="Yes"
 NEVER="Never"
 YES_OR_NO_OPTIONS = ["No","Yes"]
 DIET_OPTIONS = ["Veg", "Non-Veg","Mixed Diet"]
-MARITAL_STATUS_OPTIONS = ["Married", "Unmarried"]
+MARITAL_STATUS_OPTIONS = ["Married", "Unmarried","Widow"]
 GAD_7_ANXIETY_OPTIONS = list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
 PHQ_OPTIONS= list({ "Not at all":0 , "Several Days" :1, "More than half the days" : 2 ," Nearly every day" : 3 }.items())
 
