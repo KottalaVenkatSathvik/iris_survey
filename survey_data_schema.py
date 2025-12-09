@@ -1,6 +1,6 @@
 import Constants
 
-survey_data ={
+SURVE_DATA_DEFAULT ={
   # DEMOGRAPHIC DETAILS
 Constants.Q_PATIENT_NAME : '',
 Constants.Q_AGE:'',
